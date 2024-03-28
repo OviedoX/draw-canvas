@@ -1,13 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <section class="toolbar">
+        <input type="color" data-handler-type="color" class="selector-color" />
+
+        <input
+          type="number"
+          class="finger-paint-regular"
+          min="1"
+          max="30"
+          value="10"
+          data-handler-type="lineWidth"
+        />
+
+        <div class="container-btn-return">
+          <div class="btn-reset">
+            <img src="./img/restablecer.png" alt="reset" />
+          </div>
+          <div class="btn-return">
+            <img src="./img/reiniciar.png" alt="img-return" />
+          </div>
+          <div class="btn-return btn-left">
+            <img src="/img/reiniciar.png" alt="img-return" />
+          </div>
+        </div>
+      </section>
+      <canvas width="" height=""></canvas>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

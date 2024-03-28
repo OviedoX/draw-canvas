@@ -1,24 +1,21 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { DataC } from "./globalData.js";
+import canvasDraw from "./canvasDraw.js";
+import ClickEventFun from "./helpers/ClickEvent.js";
+import { resizeViewCanvas } from "./helpers/resizeCanvas.js";
+import InputEvent from "./helpers/InputEvent.js";
+import MouseUpEvent from "./helpers/MouseUpEvent.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const APP = document.getElementById("app");
 
-setupCounter(document.querySelector('#counter'))
+DataC.canvas =  document.querySelector("canvas");
+DataC.ctx = DataC.canvas.getContext("2d", { willReadFrequently: true });
+
+canvasDraw(DataC.canvas, DataC.ctx);
+
+resizeViewCanvas(DataC.canvas, DataC.ctx);
+window.addEventListener("resize", () => resizeViewCanvas(DataC.canvas, DataC.ctx));
+
+//delegacion de eventos
+document.addEventListener("click", ClickEventFun);
+document.addEventListener("input", InputEvent);
+document.addEventListener("mouseup", MouseUpEvent);
