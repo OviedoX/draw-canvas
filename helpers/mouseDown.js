@@ -6,8 +6,13 @@ import mouseMovig from "./mouseMoving";
 const mouseDown = (ctx, coordsCanvas, canvas) => (event) => {
   event.preventDefault();
 
-  DataC.initX = event.offsetX - coordsCanvas.left;
-  DataC.initY = event.offsetY - coordsCanvas.top;
+  if(event.changedTouches) {
+    DataC.initX = event.changedTouches[0].pageX - coordsCanvas.left;
+    DataC.initY = event.changedTouches[0].pageY - coordsCanvas.top;
+  } else {
+    DataC.initX = event.offsetX - coordsCanvas.left;
+    DataC.initY = event.offsetY - coordsCanvas.top;
+  }
 
   DataC.saveCanvas = captureCanvas(canvas, ctx);
   if (DataC.redo.length > 0) DataC.redo = [];
@@ -16,6 +21,7 @@ const mouseDown = (ctx, coordsCanvas, canvas) => (event) => {
   draw(DataC.initX, DataC.initY, ctx);
   DataC.mouseMoveHandler = mouseMovig(ctx, coordsCanvas);
   canvas.addEventListener("mousemove", DataC.mouseMoveHandler);
+  canvas.addEventListener("touchmove", DataC.mouseMoveHandler);
 };
 
 export default mouseDown;

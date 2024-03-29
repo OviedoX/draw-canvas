@@ -19,3 +19,10 @@ window.addEventListener("resize", () => resizeViewCanvas(DataC.canvas, DataC.ctx
 document.addEventListener("click", ClickEventFun);
 document.addEventListener("input", InputEvent);
 document.addEventListener("mouseup", MouseUpEvent);
+
+// document.addEventListener('touchmove')
+
+//event touch
+// document.addEventListener('touchmove', event => {
+//     console.log(event);
+// })
