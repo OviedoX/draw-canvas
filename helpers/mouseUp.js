@@ -1,7 +1,7 @@
 import { DataC } from "../globalData";
 
-const mouseUp = (canvas, ctx) => () => {
-  canvas.removeEventListener("mousemove", DataC.mouseMoveHandler);
+const mouseUp = (canvas, ctx, typeEvent) => {
+  canvas.removeEventListener(typeEvent, DataC.mouseMoveHandler);
 };
 
 export default mouseUp;

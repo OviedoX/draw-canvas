@@ -14,8 +14,6 @@ function InputEvent(event) {
     handlerType = ELEMENT.dataset.handlerType,
     handler = handlerElemt[handlerType];
 
-  console.log(ELEMENT.dataset);
-
   if (handler) handler(ELEMENT);
 }
 

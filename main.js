@@ -19,10 +19,14 @@ window.addEventListener("resize", () => resizeViewCanvas(DataC.canvas, DataC.ctx
 document.addEventListener("click", ClickEventFun);
 document.addEventListener("input", InputEvent);
 document.addEventListener("mouseup", MouseUpEvent);
+document.addEventListener("touchend", MouseUpEvent)
 
-// document.addEventListener('touchmove')
-
-//event touch
-// document.addEventListener('touchmove', event => {
-//     console.log(event);
+// window.matchMedia("(orientation: portrait)").addEventListener('change', event => {
+//     const portrait = event.matches;
+    
+//     if (portrait) {
+//         canvasDraw(DataC.canvas, DataC.ctx);
+//     } else {
+//         canvasDraw(DataC.canvas, DataC.ctx);
+//     }
 // })

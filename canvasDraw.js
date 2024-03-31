@@ -1,5 +1,4 @@
 import mouseDown from "./helpers/mouseDown";
-// import touchMove from "./helpers/touchMove";
 
 function canvasDraw(canvas, ctx) {
   const canvas_coords = canvas.getBoundingClientRect();

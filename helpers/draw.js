@@ -1,10 +1,12 @@
 import { DataC } from "../globalData";
 
 function draw(x, y, ctx) {
+  const { initX, initY, line_width, stroke_color } = DataC;
+
   ctx.beginPath();
-  ctx.moveTo(DataC.initX, DataC.initY);
-  ctx.lineWidth = DataC.line_width;
-  ctx.strokeStyle = DataC.stroke_color;
+  ctx.moveTo(initX, initY);
+  ctx.lineWidth = line_width;
+  ctx.strokeStyle = stroke_color;
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   ctx.lineTo(x, y);

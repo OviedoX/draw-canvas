@@ -2,20 +2,19 @@ import draw from "./draw";
 
 const mouseMovig = (ctx, coordsCanvas) => (event) => {
   event.preventDefault();
+  let x, y, coords;
 
   if(event.changedTouches) {
-    draw(
-      event.changedTouches[0].pageX - coordsCanvas.left,
-      event.changedTouches[0].pageY - coordsCanvas.top,
-      ctx
-    );
+    coords = event.target.getBoundingClientRect();
+    x = event.changedTouches[0].pageX;
+    y = event.changedTouches[0].pageY;
   } else {
-    draw(
-      event.offsetX - coordsCanvas.left,
-      event.offsetY - coordsCanvas.top,
-      ctx
-    );
+    coords = coordsCanvas
+    x = event.offsetX;
+    y = event.offsetY;
   }
+
+  draw(x - coords.left, y - coords.top, ctx);
 };
 
 export default mouseMovig;
