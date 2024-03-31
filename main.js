@@ -23,10 +23,9 @@ document.addEventListener("touchend", MouseUpEvent)
 
 // window.matchMedia("(orientation: portrait)").addEventListener('change', event => {
 //     const portrait = event.matches;
-    
 //     if (portrait) {
-//         canvasDraw(DataC.canvas, DataC.ctx);
+//         console.log('sds')
 //     } else {
-//         canvasDraw(DataC.canvas, DataC.ctx);
+//         console.log('as')
 //     }
 // })

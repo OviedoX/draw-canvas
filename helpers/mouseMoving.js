@@ -1,18 +1,11 @@
 import draw from "./draw";
 
-const mouseMovig = (ctx, coordsCanvas) => (event) => {
+const mouseMovig = (ctx) => (event) => {
   event.preventDefault();
-  let x, y, coords;
+  let coords = event.target.getBoundingClientRect();
 
-  if(event.changedTouches) {
-    coords = event.target.getBoundingClientRect();
-    x = event.changedTouches[0].pageX;
-    y = event.changedTouches[0].pageY;
-  } else {
-    coords = coordsCanvas
-    x = event.offsetX;
-    y = event.offsetY;
-  }
+  let {pageX: x, pageY: y} = event.changedTouches ?
+  event.changedTouches[0] : event
 
   draw(x - coords.left, y - coords.top, ctx);
 };

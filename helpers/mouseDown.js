@@ -3,10 +3,11 @@ import captureCanvas from "./captureCanvas";
 import draw from "./draw";
 import mouseMovig from "./mouseMoving";
 
-const mouseDown = (ctx, coordsCanvas, canvas) => (event) => {
+const mouseDown = (ctx, canvas) => (event) => {
   event.preventDefault();
 
   let useEvent;
+  let coords = event.target.getBoundingClientRect();
 
   if (DataC.redo.length > 0) DataC.redo = [];
   DataC.saveCanvas = captureCanvas(canvas, ctx);
@@ -14,17 +15,16 @@ const mouseDown = (ctx, coordsCanvas, canvas) => (event) => {
 
   if (event.changedTouches) {
     useEvent = "touchmove";
-    let rect = event.target.getBoundingClientRect();
-    DataC.initX = event.changedTouches[0].pageX - rect.left;
-    DataC.initY = event.changedTouches[0].pageY - rect.top;
+    DataC.initX = event.changedTouches[0].pageX - coords.left;
+    DataC.initY = event.changedTouches[0].pageY - coords.top;
   } else {
     useEvent = "mousemove";
-    DataC.initX = event.offsetX - coordsCanvas.left;
-    DataC.initY = event.offsetY - coordsCanvas.top;
+    DataC.initX = event.pageX - coords.left;
+    DataC.initY = event.pageY - coords.top;
   }
 
   draw(DataC.initX, DataC.initY, ctx);
-  DataC.mouseMoveHandler = mouseMovig(ctx, coordsCanvas);
+  DataC.mouseMoveHandler = mouseMovig(ctx);
   canvas.addEventListener(useEvent, DataC.mouseMoveHandler);
 };
 
