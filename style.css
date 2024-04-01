@@ -46,7 +46,8 @@
 /* toolbar */
 .toolbar {
   max-width: 900px;
-  width: 90%;
+  width: 95%;
+  max-height: 100px;
   height: 100px;
   background-color: var(--primary-color);
   border-radius: 20px;
@@ -143,7 +144,6 @@ input[type="number"] {
   }
 
   .toolbar {
-    width: 95%;
     height: 80px;
   }
 

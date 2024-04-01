@@ -1,6 +1,6 @@
 import draw from "./draw";
 
-const mouseMovig = (ctx) => (event) => {
+const handlerMove = (ctx) => (event) => {
   event.preventDefault();
   let coords = event.target.getBoundingClientRect();
 
@@ -10,4 +10,4 @@ const mouseMovig = (ctx) => (event) => {
   draw(x - coords.left, y - coords.top, ctx);
 };
 
-export default mouseMovig;
+export default handlerMove;

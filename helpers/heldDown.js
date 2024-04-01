@@ -1,10 +1,10 @@
 import { DataC } from "../globalData";
 import captureCanvas from "./captureCanvas";
 import draw from "./draw";
-import mouseMovig from "./mouseMoving";
+import handlerMove from "./handlerMove";
 
-const mouseDown = (ctx, canvas) => (event) => {
-  event.preventDefault();
+const heldDown = (ctx, canvas) => (event) => {
+  if (event.cancelable) event.preventDefault();
 
   let useEvent;
   let coords = event.target.getBoundingClientRect();
@@ -24,8 +24,8 @@ const mouseDown = (ctx, canvas) => (event) => {
   }
 
   draw(DataC.initX, DataC.initY, ctx);
-  DataC.mouseMoveHandler = mouseMovig(ctx);
-  canvas.addEventListener(useEvent, DataC.mouseMoveHandler);
+  DataC.moveHandler = handlerMove(ctx);
+  canvas.addEventListener(useEvent, DataC.moveHandler);
 };
 
-export default mouseDown;
+export default heldDown;

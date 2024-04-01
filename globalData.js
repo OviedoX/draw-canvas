@@ -4,7 +4,7 @@ export let DataC = {
     canvasHst: [],
     redo: [],
     saveCanvas: null,
-    mouseMoveHandler: null, 
+    moveHandler: null, 
     initX: null, 
     initY: null,
     ctx: null,
